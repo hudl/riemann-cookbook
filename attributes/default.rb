@@ -6,3 +6,4 @@ default[:riemann][:port][:udp] = 5555
 default[:riemann][:port][:ws] = 5556
 default[:riemann][:index_ttl] = 300 # default 5 minutes
 default[:riemann][:expiry_interval_seconds] = 5
+default[:riemann][:extra_config] = ""
