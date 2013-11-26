@@ -1,14 +1,14 @@
 ; -*- mode: clojure; -*-
 ; vim: filetype=clojure
 
-(logging/init :file "/var/log/riemann/riemann.log")
+(logging/init :file "<%= node[:riemann][:log_file] %>")
 
 ; Listen on the local interface over TCP (5555), UDP (5555), and websockets
 ; (5556)
-(let [host "0.0.0.0"]
-  (tcp-server :host host)
-  (udp-server :host host)
-  (ws-server  :host host))
+(let [host "<%= node[:riemann][:host] %>"]
+  (tcp-server :host host :port <%= node[:riemann][:port][:tcp] %>)
+  (udp-server :host host :port <%= node[:riemann][:port][:udp] %>)
+  (ws-server  :host host :port <%= node[:riemann][:port][:ws] %>))
 
 ; We are our own graphite server
 (def graph (
@@ -17,11 +17,11 @@
 ; graph EVERYTHING!!!
 (streams graph)
 
-; Expire old events from the index every 10 seconds
-(periodically-expire 10)
+; Expire old events from the index every <%= node[:riemann][:expiry_interval_seconds] %> seconds
+(periodically-expire <%= node[:riemann][:expiry_interval_seconds] %>)
 
-; Keep events in the index for 5 minutes by default.
-(let [index (default :ttl 300 (update-index (index)))]
+; Keep events in the index for <%= node[:riemann][:index_ttl] %> seconds by default.
+(let [index (default :ttl <%= node[:riemann][:index_ttl] %> (update-index (index)))]
 
   ; Inbound events will be passed to these streams:
   (streams
