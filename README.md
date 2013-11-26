@@ -34,3 +34,8 @@ MIT
 # Author
 
 Author:: Ryan Brown (ryan.brown@hudl.com)
+
+# TODO
+
+* Parameterize configuration template
+* Add the option not to install a graphite server
