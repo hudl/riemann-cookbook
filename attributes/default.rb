@@ -1,4 +1,5 @@
 default[:riemann][:version] = "0.2.4"
+default[:riemann][:rpm_url] = ""
 default[:riemann][:log_file] = "/var/log/riemann/riemann.log"
 default[:riemann][:host] = "0.0.0.0"
 default[:riemann][:port][:tcp] = 5555

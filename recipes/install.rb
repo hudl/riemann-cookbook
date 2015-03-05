@@ -26,8 +26,9 @@
 case node['platform_family']
 when "rhel","fedora"
     include_recipe 'yum::epel'
+    rpm = node[:riemann][:rpm_url].empty? ? "http://aphyr.com/riemann/riemann-#{node[:riemann][:version]}-1.noarch.rpm" : node[:riemann][:rpm_url]
     execute "Install riemann" do
         not_if {File.exists?("/usr/bin/riemann")}
-        command "yum localinstall -y http://aphyr.com/riemann/riemann-#{node[:riemann][:version]}-1.noarch.rpm"
+        command "yum localinstall -y #{rpm}"
     end
 end
