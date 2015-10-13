@@ -1,0 +1,44 @@
+AllCops:
+ Include:
+   - '**/Berksfile'
+   - '**/Gemfile'
+   - '**/Rakefile'
+   - '**/Thorfile'
+   - '**/Guardfile'
+ Exclude:
+   - 'vendor/**/*'
+   -  metadata.rb
+AlignParameters:
+ Enabled: false
+LineLength:
+  Max: 200
+ClassLength:
+ Enabled: false
+Documentation:
+ Enabled: false
+Encoding:
+ Enabled: false
+HashSyntax:
+ Enabled: true
+LineLength:
+ Enabled: false
+MethodLength:
+ Enabled: false
+ModuleLength:
+ Enabled: False
+SignalException:
+ Enabled: true
+TrailingComma:
+ Enabled: true
+WordArray:
+ Enabled: true
+StringLiterals:
+   Enabled: false
+AbcSize:
+   Enabled: false
+EmptyLinesAroundClassBody:
+   Enabled: false
+EmptyLinesAroundModuleBody:
+   Enabled: false
+EmptyLineBetweenDefs:
+   Enabled: false
