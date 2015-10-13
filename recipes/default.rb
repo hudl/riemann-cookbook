@@ -27,9 +27,9 @@ include_recipe 'riemann::install'
 include_recipe 'graphite::default'
 
 template '/etc/riemann/riemann.config' do
-    source 'riemann.config.erb'
+  source 'riemann.config.erb'
 end
 
 service 'riemann' do
-    action [:enable, :restart]
+  action [:enable, :restart]
 end
