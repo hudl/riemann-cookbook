@@ -17,9 +17,6 @@ Vagrant.configure('2') do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      :riemann => {
-        :version => '0.2.4'
-      },
       :graphite => {
         :web_server => 'apache'
       }
