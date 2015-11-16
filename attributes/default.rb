@@ -8,3 +8,4 @@ default['riemann']['index_ttl'] = 300 # default 5 minutes
 default['riemann']['expiry_interval_seconds'] = 5
 default['riemann']['extra_config'] = ''
 default['riemann']['package']['deb'] = 'http://aphyr.com/riemann/riemann_0.2.10_all.deb'
+default['riemann']['package']['rpm'] = 'http://aphyr.com/riemann/riemann_0.2.10_all.rpm'

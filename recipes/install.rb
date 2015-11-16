@@ -27,8 +27,8 @@ case node['platform_family']
 when 'rhel', 'fedora'
   include_recipe 'yum::epel'
   execute 'Install riemann' do
+    command "yum localinstall -y #{node['riemann']['package']['rpm']}"
     not_if { File.exist?('/usr/bin/riemann') }
-    command "yum localinstall -y http'//aphyr.com/riemann/riemann-#{node['riemann']['version']}-1.noarch.rpm"
   end
 when 'ubuntu', 'debian'
   execute 'Install riemann' do
